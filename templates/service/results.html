@@ -1,0 +1,247 @@
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT — Best Service Matches
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container py-4">
+
+        <!-- =================================================
+             HEADER
+             ================================================= -->
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-11">
+
+                <div class="d-flex
+                            flex-column
+                            flex-md-row
+                            justify-content-between
+                            align-items-md-end
+                            gap-3
+                            mb-4">
+
+                    <div>
+
+                        <span class="badge text-bg-primary mb-2">
+                            SERVICE RESULTS
+                        </span>
+
+                        <h1 class="fw-bold mb-2">
+                            Best matches for you
+                        </h1>
+
+                        <p
+                            id="resultsSummary"
+                            class="text-muted mb-0"
+                        >
+                            BESTORA FIT ranked these options
+                            based on your requirements.
+                        </p>
+
+                    </div>
+
+
+                    <a
+                        href="{{ url_for('service.service_page') }}"
+                        class="btn btn-outline-dark"
+                    >
+                        New Search
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     REQUIREMENT SUMMARY
+                     ================================================= -->
+
+                <div
+                    id="requirementSummary"
+                    class="card border-0 bg-light rounded-4 mb-4"
+                >
+
+                    <div class="card-body p-4">
+
+                        <div class="small text-muted mb-2">
+                            YOUR REQUIREMENT
+                        </div>
+
+                        <div
+                            id="originalRequirement"
+                            class="fw-semibold"
+                        >
+                            Loading requirement...
+                        </div>
+
+
+                        <div class="row g-3 mt-2">
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Category
+                                </div>
+
+                                <div
+                                    id="requirementCategory"
+                                    class="fw-semibold"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Location
+                                </div>
+
+                                <div
+                                    id="requirementLocation"
+                                    class="fw-semibold"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Budget
+                                </div>
+
+                                <div
+                                    id="requirementBudget"
+                                    class="fw-semibold"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Urgency
+                                </div>
+
+                                <div
+                                    id="requirementUrgency"
+                                    class="fw-semibold text-capitalize"
+                                >
+                                    —
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RESULTS CONTAINER
+                     ================================================= -->
+
+                <div id="serviceResultsList">
+
+                    <!-- JavaScript inserts result cards here. -->
+
+                </div>
+
+
+                <!-- =================================================
+                     EMPTY STATE
+                     ================================================= -->
+
+                <div
+                    id="noResults"
+                    class="card border-0 shadow-sm rounded-4 text-center"
+                    hidden
+                >
+
+                    <div class="card-body p-5">
+
+                        <div class="display-5 mb-3">
+                            🔎
+                        </div>
+
+                        <h4 class="fw-bold">
+                            No strong matches found
+                        </h4>
+
+                        <p class="text-muted">
+                            Try changing your budget, location,
+                            service category or preferred timing.
+                        </p>
+
+                        <a
+                            href="{{ url_for('service.service_page') }}"
+                            class="btn btn-primary"
+                        >
+                            Try Another Requirement
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ERROR STATE
+                     ================================================= -->
+
+                <div
+                    id="resultsError"
+                    class="alert alert-danger rounded-4"
+                    hidden
+                ></div>
+
+
+                <!-- =================================================
+                     RESULTS FOOTNOTE
+                     ================================================= -->
+
+                <div class="text-center mt-4">
+
+                    <small class="text-muted">
+                        Match scores are calculated using
+                        requirement relevance, price, availability,
+                        trust and risk signals.
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/service.js'
+    ) }}"
+></script>
+
+{% endblock %} 

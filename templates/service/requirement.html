@@ -1,0 +1,493 @@
+```html
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT — Find a Service
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-9 col-lg-10">
+
+                <!-- PAGE HEADER -->
+
+                <div class="text-center mb-5">
+
+                    <span
+                        class="badge rounded-pill px-3 py-2 mb-3"
+                        style="
+                            background: #eef2ff;
+                            color: #4f46e5;
+                            border: 1px solid #ddd9ff;
+                        "
+                    >
+                        SERVICE MODE
+                    </span>
+
+                    <h1 class="display-5 fw-bold mb-3">
+                        What service do you need?
+                    </h1>
+
+                    <p
+                        class="lead text-muted mx-auto"
+                        style="max-width: 700px;"
+                    >
+                        Describe your requirement naturally.
+                        BESTORA FIT will understand it, compare
+                        providers, evaluate trust and risk, and
+                        find the best available options.
+                    </p>
+
+                </div>
+
+
+                <!-- REQUIREMENT CARD -->
+
+                <div class="card requirement-card border-0">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <!-- CARD TITLE -->
+
+                        <div class="d-flex align-items-center gap-3 mb-4">
+
+                            <div
+                                class="feature-icon"
+                                style="flex-shrink: 0;"
+                            >
+                                AI
+                            </div>
+
+                            <div>
+                                <h4 class="fw-bold mb-1">
+                                    Tell us what you need
+                                </h4>
+
+                                <p class="text-muted mb-0">
+                                    Natural language is enough.
+                                </p>
+                            </div>
+
+                        </div>
+
+
+                        <!-- FORM -->
+
+                        <form
+                            id="serviceRequirementForm"
+                            method="POST"
+                            action="{{ url_for('service.match_service') }}"
+                        >
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="serviceRequirement"
+                                    class="form-label fw-semibold"
+                                >
+                                    Describe your requirement
+                                </label>
+
+                                <textarea
+                                    id="serviceRequirement"
+                                    name="requirement"
+                                    class="form-control form-control-lg"
+                                    rows="5"
+                                    maxlength="1000"
+                                    placeholder="Example: I need an electrician in Chennai today. My budget is under ₹500 and I need someone experienced."
+                                    required
+                                ></textarea>
+
+                                <div class="form-text mt-2">
+                                    Mention your
+                                    <strong>service</strong>,
+                                    <strong>location</strong>,
+                                    <strong>budget</strong>,
+                                    <strong>timing</strong>,
+                                    and important preferences.
+                                </div>
+
+                            </div>
+
+
+                            <!-- EXAMPLES -->
+
+                            <div
+                                class="rounded-4 p-4 mb-4"
+                                style="
+                                    background: linear-gradient(
+                                        135deg,
+                                        #f8f9ff,
+                                        #f5f3ff
+                                    );
+                                    border: 1px solid #e5e7eb;
+                                "
+                            >
+
+                                <div class="fw-semibold mb-3">
+                                    Try an example
+                                </div>
+
+                                <div class="d-flex flex-wrap gap-2">
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-light border example-requirement"
+                                        data-requirement="I need an electrician in Chennai today under ₹500"
+                                    >
+                                        ⚡ Electrician
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-light border example-requirement"
+                                        data-requirement="I need laptop repair in Chennai tomorrow under ₹1000"
+                                    >
+                                        💻 Laptop Repair
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-light border example-requirement"
+                                        data-requirement="I need home deep cleaning in Chennai this weekend under ₹2000"
+                                    >
+                                        🧹 Home Cleaning
+                                    </button>
+
+                                    <button
+                                        type="button"
+                                        class="btn btn-light border example-requirement"
+                                        data-requirement="I need packers and movers in Chennai for shifting a house"
+                                    >
+                                        📦 Packers & Movers
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- AI FEATURES -->
+
+                            <div class="row g-3 mb-4">
+
+                                <div class="col-md-6">
+
+                                    <div
+                                        class="feature-card h-100"
+                                        style="padding: 20px;"
+                                    >
+
+                                        <div
+                                            class="feature-icon mb-3"
+                                            style="
+                                                width: 42px;
+                                                height: 42px;
+                                                border-radius: 12px;
+                                            "
+                                        >
+                                            ✓
+                                        </div>
+
+                                        <h6 class="fw-bold">
+                                            AI understands
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Category, location, budget,
+                                            timing and urgency.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <div class="col-md-6">
+
+                                    <div
+                                        class="feature-card h-100"
+                                        style="padding: 20px;"
+                                    >
+
+                                        <div
+                                            class="feature-icon mb-3"
+                                            style="
+                                                width: 42px;
+                                                height: 42px;
+                                                border-radius: 12px;
+                                                background:
+                                                    linear-gradient(
+                                                        135deg,
+                                                        #06b6d4,
+                                                        #3b82f6
+                                                    );
+                                            "
+                                        >
+                                            ★
+                                        </div>
+
+                                        <h6 class="fw-bold">
+                                            Smart comparison
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Price, quality, trust,
+                                            availability and risk.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- ERROR -->
+
+                            <div
+                                id="serviceRequirementError"
+                                class="alert alert-danger mt-4"
+                                hidden
+                            ></div>
+
+
+                            <!-- PROCESSING -->
+
+                            <div
+                                id="serviceProcessing"
+                                class="alert alert-info mt-4"
+                                hidden
+                            >
+
+                                <div class="d-flex align-items-center gap-3">
+
+                                    <div
+                                        class="spinner-border spinner-border-sm"
+                                        role="status"
+                                    ></div>
+
+                                    <div>
+                                        <strong>
+                                            Understanding your requirement...
+                                        </strong>
+
+                                        <div class="small mt-1">
+                                            BESTORA FIT is comparing
+                                            available service providers.
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- SUBMIT -->
+
+                            <div class="d-grid mt-4">
+
+                                <button
+                                    type="submit"
+                                    id="findServiceButton"
+                                    class="btn btn-primary btn-lg"
+                                >
+                                    Find Best Matches
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+
+                <!-- TRUST MESSAGE -->
+
+                <div class="text-center mt-4">
+
+                    <small class="text-muted">
+                        ✓ Trust-aware
+                        &nbsp;&nbsp;•&nbsp;&nbsp;
+                        ✓ Risk-aware
+                        &nbsp;&nbsp;•&nbsp;&nbsp;
+                        ✓ Explainable recommendations
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form = document.getElementById("serviceRequirementForm");
+    const textarea = document.getElementById("serviceRequirement");
+    const examples = document.querySelectorAll(".example-requirement");
+
+    const errorBox =
+        document.getElementById("serviceRequirementError");
+
+    const processingBox =
+        document.getElementById("serviceProcessing");
+
+    const submitButton =
+        document.getElementById("findServiceButton");
+
+
+    /* =====================================================
+       EXAMPLE BUTTONS
+       ===================================================== */
+
+    examples.forEach(function (button) {
+
+        button.addEventListener("click", function () {
+
+            textarea.value =
+                button.dataset.requirement || "";
+
+            textarea.focus();
+
+            errorBox.hidden = true;
+            errorBox.textContent = "";
+
+        });
+
+    });
+
+
+    /* =====================================================
+       SERVICE MATCH REQUEST
+       ===================================================== */
+
+    form.addEventListener("submit", async function (event) {
+
+        event.preventDefault();
+
+        const requirement =
+            textarea.value.trim();
+
+
+        /* Validate */
+
+        if (!requirement) {
+
+            errorBox.textContent =
+                "Please describe the service you need.";
+
+            errorBox.hidden = false;
+
+            return;
+        }
+
+
+        /* Loading state */
+
+        submitButton.disabled = true;
+
+        submitButton.textContent =
+            "Finding Best Matches...";
+
+        processingBox.hidden = false;
+
+        errorBox.hidden = true;
+
+
+        try {
+
+            const response = await fetch(
+                "{{ url_for('service.match_service') }}",
+                {
+                    method: "POST",
+
+                    headers: {
+                        "Content-Type": "application/json",
+                        "Accept": "application/json"
+                    },
+
+                    body: JSON.stringify({
+                        requirement: requirement
+                    })
+                }
+            );
+
+
+            const data =
+                await response.json();
+
+
+            if (!response.ok || !data.success) {
+
+                throw new Error(
+                    data.error ||
+                    "Unable to find service matches."
+                );
+
+            }
+
+
+            /* Save result */
+
+            sessionStorage.setItem(
+                "bestora_service_results",
+                JSON.stringify(data)
+            );
+
+            sessionStorage.setItem(
+                "bestora_service_requirement",
+                requirement
+            );
+
+
+            /* Go to existing results page */
+
+            window.location.href =
+                "{{ url_for('service.service_results_page') }}";
+
+
+        } catch (error) {
+
+            console.error(
+                "BESTORA FIT service error:",
+                error
+            );
+
+            processingBox.hidden = true;
+
+            errorBox.textContent =
+                error.message ||
+                "Something went wrong. Please try again.";
+
+            errorBox.hidden = false;
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+                "Find Best Matches";
+        }
+
+    });
+
+});
+</script>
+
+{% endblock %}

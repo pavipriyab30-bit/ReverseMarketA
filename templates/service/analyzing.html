@@ -1,0 +1,283 @@
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT — Finding Your Best Match
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-7">
+
+                <div class="text-center">
+
+                    <!-- AI indicator -->
+
+                    <div
+                        class="mx-auto mb-4
+                               d-flex align-items-center
+                               justify-content-center
+                               rounded-circle
+                               bg-primary bg-opacity-10"
+                        style="width: 90px; height: 90px;"
+                    >
+
+                        <span
+                            class="fs-1 text-primary"
+                            aria-hidden="true"
+                        >
+                            ✦
+                        </span>
+
+                    </div>
+
+
+                    <span class="badge text-bg-primary mb-3">
+                        AI MATCHING
+                    </span>
+
+
+                    <h1 class="fw-bold mb-3">
+                        Finding your best match
+                    </h1>
+
+
+                    <p class="lead text-muted mb-5">
+                        BESTORA FIT is analyzing your requirement
+                        and comparing available service options.
+                    </p>
+
+
+                    <!-- Analysis steps -->
+
+                    <div class="card border-0 shadow-sm rounded-4">
+
+                        <div class="card-body p-4 p-md-5">
+
+                            <div class="text-start">
+
+                                <!-- Step 1 -->
+
+                                <div
+                                    class="d-flex align-items-start mb-4"
+                                    id="analysisStepRequirement"
+                                >
+
+                                    <div
+                                        class="analysis-icon
+                                               rounded-circle
+                                               bg-success
+                                               text-white
+                                               d-flex
+                                               align-items-center
+                                               justify-content-center
+                                               me-3"
+                                        style="
+                                            width: 36px;
+                                            height: 36px;
+                                            min-width: 36px;
+                                        "
+                                    >
+                                        ✓
+                                    </div>
+
+                                    <div>
+
+                                        <h6 class="fw-bold mb-1">
+                                            Understanding requirement
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Extracting service,
+                                            location, budget and timing.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Step 2 -->
+
+                                <div
+                                    class="d-flex align-items-start mb-4"
+                                    id="analysisStepMatching"
+                                >
+
+                                    <div
+                                        class="analysis-icon
+                                               rounded-circle
+                                               bg-primary
+                                               text-white
+                                               d-flex
+                                               align-items-center
+                                               justify-content-center
+                                               me-3"
+                                        style="
+                                            width: 36px;
+                                            height: 36px;
+                                            min-width: 36px;
+                                        "
+                                    >
+
+                                        <span
+                                            class="spinner-border
+                                                   spinner-border-sm"
+                                            role="status"
+                                        >
+                                            <span class="visually-hidden">
+                                                Loading
+                                            </span>
+                                        </span>
+
+                                    </div>
+
+                                    <div>
+
+                                        <h6 class="fw-bold mb-1">
+                                            Comparing providers
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Checking price, quality,
+                                            availability and relevance.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+
+                                <!-- Step 3 -->
+
+                                <div
+                                    class="d-flex align-items-start"
+                                    id="analysisStepTrust"
+                                >
+
+                                    <div
+                                        class="analysis-icon
+                                               rounded-circle
+                                               bg-light
+                                               text-muted
+                                               d-flex
+                                               align-items-center
+                                               justify-content-center
+                                               me-3"
+                                        style="
+                                            width: 36px;
+                                            height: 36px;
+                                            min-width: 36px;
+                                        "
+                                    >
+                                        3
+                                    </div>
+
+                                    <div>
+
+                                        <h6
+                                            class="fw-bold mb-1
+                                                   text-muted"
+                                        >
+                                            Evaluating trust & risk
+                                        </h6>
+
+                                        <p class="small text-muted mb-0">
+                                            Checking provider reliability
+                                            and potential risk indicators.
+                                        </p>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Progress -->
+
+                            <div class="mt-5">
+
+                                <div
+                                    class="d-flex
+                                           justify-content-between
+                                           small mb-2"
+                                >
+
+                                    <span class="text-muted">
+                                        Matching progress
+                                    </span>
+
+                                    <span
+                                        id="analysisProgressText"
+                                        class="fw-semibold"
+                                    >
+                                        65%
+                                    </span>
+
+                                </div>
+
+
+                                <div
+                                    class="progress"
+                                    style="height: 8px;"
+                                >
+
+                                    <div
+                                        id="analysisProgressBar"
+                                        class="progress-bar"
+                                        role="progressbar"
+                                        style="width: 65%;"
+                                        aria-valuenow="65"
+                                        aria-valuemin="0"
+                                        aria-valuemax="100"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Requirement preview -->
+
+                    <div
+                        id="analyzingRequirement"
+                        class="mt-4"
+                    >
+
+                        {% if requirement %}
+                            <div
+                                class="small text-muted"
+                            >
+                                Your requirement
+                            </div>
+
+                            <div
+                                class="fw-semibold mt-1"
+                            >
+                                {{ requirement }}
+                            </div>
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %} 

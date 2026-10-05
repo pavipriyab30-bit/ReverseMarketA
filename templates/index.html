@@ -1,0 +1,1463 @@
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT — Find. Compare. Choose Better.
+{% endblock %}
+
+
+{% block content %}
+
+<!-- =========================================================
+     HERO
+     ========================================================= -->
+
+<section class="hero-section py-5">
+
+    <div class="container py-5">
+
+        <div class="row align-items-center g-5">
+
+            <!-- HERO CONTENT -->
+
+            <div class="col-lg-7">
+
+                <span
+                    class="badge rounded-pill px-3 py-2 mb-4"
+                    style="
+                        background: #eef2ff;
+                        color: #4f46e5;
+                        border: 1px solid #ddd9ff;
+                    "
+                >
+                    AI-POWERED DECISION ENGINE
+                </span>
+
+
+                <h1 class="display-3 fw-bold mb-4">
+
+                    Find.
+
+                    <span class="bf-gradient-text">
+                        Compare.
+                    </span>
+
+                    <br>
+
+                    Choose Better.
+
+                </h1>
+
+
+                <p
+                    class="lead mb-4"
+                    style="max-width: 650px;"
+                >
+                    Tell BESTORA FIT what you actually need.
+                    Our AI understands your requirement, compares
+                    available options, evaluates trust and risk,
+                    and helps you make a better decision.
+                </p>
+
+
+                <div
+                    class="d-flex flex-column flex-sm-row
+                           gap-3 mb-4"
+                >
+
+                    <a
+                        href="#service"
+                        class="btn btn-primary btn-lg px-4"
+                    >
+                        Find a Service
+                    </a>
+
+
+                    <a
+                        href="/product/"
+                        class="btn btn-outline-dark btn-lg px-4"
+                    >
+                        Find a Product
+                    </a>
+
+                </div>
+
+
+                <div class="d-flex flex-wrap gap-3">
+
+                    <div
+                        class="small text-muted
+                               d-flex align-items-center gap-2"
+                    >
+                        <span
+                            class="rounded-circle"
+                            style="
+                                width: 8px;
+                                height: 8px;
+                                background: #16a34a;
+                                display: inline-block;
+                            "
+                        ></span>
+
+                        AI-powered matching
+                    </div>
+
+
+                    <div
+                        class="small text-muted
+                               d-flex align-items-center gap-2"
+                    >
+                        <span
+                            class="rounded-circle"
+                            style="
+                                width: 8px;
+                                height: 8px;
+                                background: #635bff;
+                                display: inline-block;
+                            "
+                        ></span>
+
+                        Trust-aware recommendations
+                    </div>
+
+
+                    <div
+                        class="small text-muted
+                               d-flex align-items-center gap-2"
+                    >
+                        <span
+                            class="rounded-circle"
+                            style="
+                                width: 8px;
+                                height: 8px;
+                                background: #06b6d4;
+                                display: inline-block;
+                            "
+                        ></span>
+
+                        Explainable results
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- AI VISUAL CARD -->
+
+            <div class="col-lg-5">
+
+                <div
+                    class="card border-0 rounded-4"
+                    style="
+                        background:
+                            linear-gradient(
+                                145deg,
+                                #111827,
+                                #312e81
+                            );
+                        box-shadow:
+                            0 30px 70px
+                            rgba(49, 46, 129, 0.28);
+                        overflow: hidden;
+                    "
+                >
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div
+                            class="d-flex
+                                   justify-content-between
+                                   align-items-center mb-4"
+                        >
+
+                            <div>
+
+                                <div
+                                    class="small mb-1"
+                                    style="color:#a5b4fc;"
+                                >
+                                    BESTORA AI
+                                </div>
+
+                                <h4
+                                    class="fw-bold text-white mb-0"
+                                >
+                                    Decision Engine
+                                </h4>
+
+                            </div>
+
+
+                            <div
+                                class="rounded-circle
+                                       d-flex
+                                       align-items-center
+                                       justify-content-center"
+                                style="
+                                    width: 48px;
+                                    height: 48px;
+                                    background:
+                                        linear-gradient(
+                                            135deg,
+                                            #635bff,
+                                            #06b6d4
+                                        );
+                                    color: white;
+                                    font-weight: 900;
+                                "
+                            >
+                                AI
+                            </div>
+
+                        </div>
+
+
+                        <!-- INPUT -->
+
+                        <div
+                            class="rounded-4 p-3 mb-3"
+                            style="
+                                background:
+                                    rgba(255,255,255,0.08);
+                                border:
+                                    1px solid
+                                    rgba(255,255,255,0.10);
+                            "
+                        >
+
+                            <div
+                                class="small mb-2"
+                                style="color:#a5b4fc;"
+                            >
+                                YOUR REQUIREMENT
+                            </div>
+
+                            <div
+                                class="text-white fw-semibold"
+                            >
+                                "Laptop repair in Chennai,
+                                under ₹2,000, preferably today."
+                            </div>
+
+                        </div>
+
+
+                        <!-- PROCESS -->
+
+                        <div class="row g-2 mb-3">
+
+                            <div class="col-4">
+
+                                <div
+                                    class="rounded-3 p-3 h-100"
+                                    style="
+                                        background:
+                                            rgba(255,255,255,0.06);
+                                    "
+                                >
+
+                                    <div
+                                        class="small mb-1"
+                                        style="color:#94a3b8;"
+                                    >
+                                        UNDERSTAND
+                                    </div>
+
+                                    <div
+                                        class="text-white
+                                               fw-bold"
+                                    >
+                                        ✓
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-4">
+
+                                <div
+                                    class="rounded-3 p-3 h-100"
+                                    style="
+                                        background:
+                                            rgba(255,255,255,0.06);
+                                    "
+                                >
+
+                                    <div
+                                        class="small mb-1"
+                                        style="color:#94a3b8;"
+                                    >
+                                        COMPARE
+                                    </div>
+
+                                    <div
+                                        class="text-white
+                                               fw-bold"
+                                    >
+                                        ✓
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-4">
+
+                                <div
+                                    class="rounded-3 p-3 h-100"
+                                    style="
+                                        background:
+                                            rgba(255,255,255,0.06);
+                                    "
+                                >
+
+                                    <div
+                                        class="small mb-1"
+                                        style="color:#94a3b8;"
+                                    >
+                                        EVALUATE
+                                    </div>
+
+                                    <div
+                                        class="text-white
+                                               fw-bold"
+                                    >
+                                        ✓
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- RESULT -->
+
+                        <div
+                            class="rounded-4 p-3"
+                            style="
+                                background:
+                                    rgba(99,91,255,0.18);
+                                border:
+                                    1px solid
+                                    rgba(165,180,252,0.22);
+                            "
+                        >
+
+                            <div
+                                class="d-flex
+                                       justify-content-between
+                                       align-items-center"
+                            >
+
+                                <div>
+
+                                    <div
+                                        class="small"
+                                        style="color:#a5b4fc;"
+                                    >
+                                        BEST FIT
+                                    </div>
+
+                                    <div
+                                        class="text-white
+                                               fw-bold"
+                                    >
+                                        TechFix Solutions
+                                    </div>
+
+                                </div>
+
+
+                                <div
+                                    class="text-end"
+                                >
+
+                                    <div
+                                        class="fw-bold"
+                                        style="color:#86efac;"
+                                    >
+                                        92%
+                                    </div>
+
+                                    <div
+                                        class="small"
+                                        style="color:#94a3b8;"
+                                    >
+                                        Match
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     VALUE STRIP
+     ========================================================= -->
+
+<section class="py-4">
+
+    <div class="container">
+
+        <div
+            class="card border-0 rounded-4"
+            style="
+                background: #ffffff;
+                box-shadow:
+                    0 12px 35px
+                    rgba(15,23,42,0.06);
+            "
+        >
+
+            <div class="card-body p-4">
+
+                <div class="row g-4 text-center">
+
+                    <div class="col-md-3">
+
+                        <div
+                            class="fw-bold fs-4"
+                            style="color:#635bff;"
+                        >
+                            AI
+                        </div>
+
+                        <div class="small text-muted">
+                            Requirement understanding
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div
+                            class="fw-bold fs-4"
+                            style="color:#635bff;"
+                        >
+                            360°
+                        </div>
+
+                        <div class="small text-muted">
+                            Multi-factor comparison
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div
+                            class="fw-bold fs-4"
+                            style="color:#16a34a;"
+                        >
+                            TRUST
+                        </div>
+
+                        <div class="small text-muted">
+                            Provider evaluation
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-md-3">
+
+                        <div
+                            class="fw-bold fs-4"
+                            style="color:#06b6d4;"
+                        >
+                            WHY
+                        </div>
+
+                        <div class="small text-muted">
+                            Explainable recommendations
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     HOW IT WORKS
+     ========================================================= -->
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div class="text-center mb-5">
+
+            <span
+                class="badge rounded-pill px-3 py-2"
+                style="
+                    background:#eef2ff;
+                    color:#4f46e5;
+                "
+            >
+                HOW IT WORKS
+            </span>
+
+            <h2 class="fw-bold mt-3 mb-3">
+                From a simple request
+                to a confident decision
+            </h2>
+
+            <p
+                class="text-muted mx-auto"
+                style="max-width:650px;"
+            >
+                You don't need to search through hundreds
+                of listings. BESTORA FIT turns your requirement
+                into a decision.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            <!-- STEP 1 -->
+
+            <div class="col-md-4">
+
+                <div
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon mb-4">
+                        01
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Tell us what you need
+                    </h5>
+
+                    <p class="mb-0">
+                        Describe your requirement naturally.
+                        Mention your budget, location,
+                        features, urgency or preferences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 2 -->
+
+            <div class="col-md-4">
+
+                <div
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon mb-4">
+                        02
+                    </div>
+
+                    <h5 class="fw-bold">
+                        AI compares the options
+                    </h5>
+
+                    <p class="mb-0">
+                        BESTORA FIT evaluates price, quality,
+                        availability, location, trust,
+                        features and risk.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- STEP 3 -->
+
+            <div class="col-md-4">
+
+                <div
+                    class="feature-card"
+                >
+
+                    <div class="feature-icon mb-4">
+                        03
+                    </div>
+
+                    <h5 class="fw-bold">
+                        Choose with confidence
+                    </h5>
+
+                    <p class="mb-0">
+                        See the best-fit recommendation,
+                        understand why it was selected,
+                        and make the final decision yourself.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     SERVICE MODE
+     ========================================================= -->
+
+<section
+    id="service"
+    class="py-5"
+>
+
+    <div class="container py-5">
+
+        <div
+            class="row justify-content-center"
+        >
+
+            <div class="col-xl-9 col-lg-10">
+
+                <div
+                    class="text-center mb-4"
+                >
+
+                    <span
+                        class="badge rounded-pill px-3 py-2"
+                        style="
+                            background:#eef2ff;
+                            color:#4f46e5;
+                        "
+                    >
+                        PRIMARY MODE
+                    </span>
+
+                    <h2
+                        class="display-6 fw-bold mt-3"
+                    >
+                        Find the right service
+                    </h2>
+
+                    <p class="lead text-muted">
+                        Tell BESTORA FIT what you need.
+                        We'll find and rank the most suitable providers.
+                    </p>
+
+                </div>
+
+
+                <div
+                    class="card
+                           requirement-card
+                           border-0"
+                >
+
+                    <div
+                        class="card-body
+                               p-4
+                               p-md-5"
+                    >
+
+                        <div
+                            class="d-flex
+                                   align-items-center
+                                   gap-3
+                                   mb-4"
+                        >
+
+                            <div
+                                class="feature-icon"
+                                style="
+                                    flex-shrink:0;
+                                "
+                            >
+                                AI
+                            </div>
+
+                            <div>
+
+                                <h5 class="fw-bold mb-1">
+                                    Describe your requirement
+                                </h5>
+
+                                <div class="small text-muted">
+                                    Natural language is enough.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <form id="serviceForm">
+
+                            <div class="mb-4">
+
+                                <label
+                                    for="requirement"
+                                    class="form-label fw-semibold"
+                                >
+                                    What do you need?
+                                </label>
+
+
+                                <textarea
+                                    id="requirement"
+                                    name="requirement"
+                                    class="form-control form-control-lg"
+                                    rows="5"
+                                    placeholder="Example: I need a laptop repair service in Chennai for a laptop issue, preferably today, under ₹2,000."
+                                    required
+                                ></textarea>
+
+
+                                <div class="form-text mt-2">
+
+                                    Include details such as
+                                    <strong>location</strong>,
+                                    <strong>budget</strong>,
+                                    <strong>urgency</strong>,
+                                    or preferred timing.
+
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="d-grid"
+                            >
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-primary btn-lg"
+                                >
+                                    Find Best Matches
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <!-- STATUS -->
+
+                        <div
+                            id="serviceStatus"
+                            class="mt-4"
+                            hidden
+                        ></div>
+
+
+                        <!-- RESULTS -->
+
+                        <div
+                            id="serviceResults"
+                            class="mt-4"
+                        ></div>
+
+
+                        <!-- EXAMPLES -->
+
+                        <div
+                            class="mt-4 pt-4"
+                            style="
+                                border-top:
+                                    1px solid #e5e7eb;
+                            "
+                        >
+
+                            <div
+                                class="small
+                                       fw-semibold
+                                       mb-3"
+                            >
+                                Try an example
+                            </div>
+
+
+                            <div
+                                class="d-flex
+                                       flex-wrap
+                                       gap-2"
+                            >
+
+                                <span
+                                    class="badge
+                                           rounded-pill
+                                           bg-light
+                                           text-dark
+                                           border
+                                           px-3
+                                           py-2"
+                                >
+                                    Laptop repair
+                                </span>
+
+
+                                <span
+                                    class="badge
+                                           rounded-pill
+                                           bg-light
+                                           text-dark
+                                           border
+                                           px-3
+                                           py-2"
+                                >
+                                    Electrician
+                                </span>
+
+
+                                <span
+                                    class="badge
+                                           rounded-pill
+                                           bg-light
+                                           text-dark
+                                           border
+                                           px-3
+                                           py-2"
+                                >
+                                    Home repair
+                                </span>
+
+
+                                <span
+                                    class="badge
+                                           rounded-pill
+                                           bg-light
+                                           text-dark
+                                           border
+                                           px-3
+                                           py-2"
+                                >
+                                    Cleaning
+                                </span>
+
+
+                                <span
+                                    class="badge
+                                           rounded-pill
+                                           bg-light
+                                           text-dark
+                                           border
+                                           px-3
+                                           py-2"
+                                >
+                                    Packers & movers
+                                </span>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     PRODUCT MODE
+     ========================================================= -->
+
+<section
+    id="product"
+    class="py-5"
+>
+
+    <div class="container py-5">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-7">
+
+                <span
+                    class="badge rounded-pill px-3 py-2"
+                    style="
+                        background:#ecfeff;
+                        color:#0e7490;
+                    "
+                >
+                    PRODUCT MODE
+                </span>
+
+
+                <h2
+                    class="display-6 fw-bold mt-3 mb-3"
+                >
+                    Don't just find products.
+                    Find the right one.
+                </h2>
+
+
+                <p class="lead text-muted">
+
+                    Tell BESTORA FIT your budget,
+                    required features and preferences.
+                    Our product engine compares the
+                    catalogue and identifies the
+                    best-fit options.
+
+                </p>
+
+
+                <div class="row g-3 mt-3">
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon mb-3">
+                                ₹
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Budget-aware
+                            </h6>
+
+                            <p class="small mb-0">
+                                Prioritize products that
+                                actually fit your budget.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div class="feature-icon mb-3">
+                                ✓
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Feature matching
+                            </h6>
+
+                            <p class="small mb-0">
+                                Match products against
+                                the features you care about.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="mt-4">
+
+                    <a
+                        href="/product/"
+                        class="btn btn-primary btn-lg"
+                    >
+                        Explore Products
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- PRODUCT PREVIEW -->
+
+            <div class="col-lg-5">
+
+                <div
+                    class="card
+                           border-0
+                           rounded-4"
+                    style="
+                        box-shadow:
+                            0 20px 50px
+                            rgba(15,23,42,0.1);
+                    "
+                >
+
+                    <div class="card-body p-4">
+
+                        <div
+                            class="d-flex
+                                   justify-content-between
+                                   align-items-center
+                                   mb-4"
+                        >
+
+                            <div>
+
+                                <div
+                                    class="small
+                                           text-primary
+                                           fw-semibold"
+                                >
+                                    EXAMPLE
+                                </div>
+
+                                <h5 class="fw-bold mb-0">
+                                    Product matching
+                                </h5>
+
+                            </div>
+
+
+                            <span
+                                class="badge
+                                       rounded-pill
+                                       bg-success"
+                            >
+                                Best Fit
+                            </span>
+
+                        </div>
+
+
+                        <div
+                            class="rounded-4
+                                   p-3
+                                   mb-3"
+                            style="
+                                background:#f8f9ff;
+                            "
+                        >
+
+                            <div
+                                class="small
+                                       text-muted
+                                       mb-1"
+                            >
+                                Requirement
+                            </div>
+
+                            <div class="fw-semibold">
+                                Laptop under ₹60,000
+                                for coding
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="d-flex
+                                   justify-content-between
+                                   align-items-center
+                                   py-3
+                                   border-bottom"
+                        >
+
+                            <div>
+
+                                <div
+                                    class="fw-bold"
+                                >
+                                    ASUS Vivobook 15
+                                </div>
+
+                                <div
+                                    class="small
+                                           text-muted"
+                                >
+                                    ₹48,999
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="text-end"
+                            >
+
+                                <div
+                                    class="fw-bold
+                                           text-primary"
+                                >
+                                    91%
+                                </div>
+
+                                <div
+                                    class="small
+                                           text-muted"
+                                >
+                                    Match
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="d-flex
+                                   justify-content-between
+                                   align-items-center
+                                   py-3
+                                   border-bottom"
+                        >
+
+                            <div>
+
+                                <div
+                                    class="fw-bold"
+                                >
+                                    Lenovo IdeaPad Slim 3
+                                </div>
+
+                                <div
+                                    class="small
+                                           text-muted"
+                                >
+                                    ₹45,999
+                                </div>
+
+                            </div>
+
+
+                            <div
+                                class="text-end"
+                            >
+
+                                <div
+                                    class="fw-bold
+                                           text-primary"
+                                >
+                                    87%
+                                </div>
+
+                                <div
+                                    class="small
+                                           text-muted"
+                                >
+                                    Match
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="small
+                                   text-muted
+                                   mt-3"
+                        >
+                            Ranked using budget, features,
+                            quality and value.
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     TRUST / EXPLAINABILITY
+     ========================================================= -->
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div
+            class="row align-items-center g-5"
+        >
+
+            <div class="col-lg-5">
+
+                <span
+                    class="badge rounded-pill px-3 py-2"
+                    style="
+                        background:#ecfdf3;
+                        color:#15803d;
+                    "
+                >
+                    TRUST + SAFETY
+                </span>
+
+
+                <h2
+                    class="display-6
+                           fw-bold
+                           mt-3
+                           mb-3"
+                >
+                    A recommendation
+                    should explain itself.
+                </h2>
+
+
+                <p class="lead text-muted">
+
+                    BESTORA FIT doesn't only tell you
+                    what to choose. It shows the factors
+                    behind the recommendation.
+
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-7">
+
+                <div class="row g-3">
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div
+                                class="feature-icon mb-3"
+                            >
+                                ✓
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Trust scoring
+                            </h6>
+
+                            <p class="small mb-0">
+                                Reviews, experience,
+                                completed jobs, response
+                                rate and verification.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div
+                                class="feature-icon mb-3"
+                            >
+                                !
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Risk detection
+                            </h6>
+
+                            <p class="small mb-0">
+                                Identify warning signals
+                                before recommending
+                                an option.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div
+                                class="feature-icon mb-3"
+                            >
+                                ★
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Match scoring
+                            </h6>
+
+                            <p class="small mb-0">
+                                Compare multiple factors
+                                instead of relying only
+                                on popularity.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="col-sm-6">
+
+                        <div class="feature-card">
+
+                            <div
+                                class="feature-icon mb-3"
+                            >
+                                AI
+                            </div>
+
+                            <h6 class="fw-bold">
+                                Explainable AI
+                            </h6>
+
+                            <p class="small mb-0">
+                                Understand why an option
+                                is recommended.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     FINAL CTA
+     ========================================================= -->
+
+<section class="py-5">
+
+    <div class="container py-5">
+
+        <div
+            class="rounded-4
+                   p-4
+                   p-md-5
+                   text-center"
+            style="
+                background:
+                    linear-gradient(
+                        135deg,
+                        #111827,
+                        #312e81
+                    );
+
+                box-shadow:
+                    0 25px 60px
+                    rgba(49,46,129,0.22);
+            "
+        >
+
+            <span
+                class="badge
+                       rounded-pill
+                       px-3
+                       py-2
+                       mb-3"
+                style="
+                    background:
+                        rgba(255,255,255,0.1);
+                    color:#c7d2fe;
+                    border:
+                        1px solid
+                        rgba(255,255,255,0.15);
+                "
+            >
+                BESTORA FIT
+            </span>
+
+
+            <h2
+                class="display-6
+                       fw-bold
+                       text-white
+                       mb-3"
+            >
+                Stop searching blindly.
+            </h2>
+
+
+            <p
+                class="lead
+                       mb-4
+                       mx-auto"
+                style="
+                    color:#cbd5e1;
+                    max-width:650px;
+                "
+            >
+                Tell BESTORA FIT what you need.
+                Let AI understand, compare, evaluate
+                and help you choose better.
+            </p>
+
+
+            <div
+                class="d-flex
+                       flex-column
+                       flex-sm-row
+                       justify-content-center
+                       gap-3"
+            >
+
+                <a
+                    href="#service"
+                    class="btn btn-primary btn-lg px-4"
+                >
+                    Find a Service
+                </a>
+
+
+                <a
+                    href="/product/"
+                    class="btn btn-light btn-lg px-4"
+                >
+                    Find a Product
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %} 

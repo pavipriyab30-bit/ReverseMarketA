@@ -1,0 +1,187 @@
+{% extends "base.html" %}
+
+{% block title %}Product Results — BESTORA FIT{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="container">
+
+        <!-- Header -->
+        <div class="row align-items-center mb-4">
+
+            <div class="col-md-8">
+                <span class="badge bg-primary mb-2">
+                    PRODUCT MODE
+                </span>
+
+                <h1 class="fw-bold mb-2">
+                    Your Best-Fit Products
+                </h1>
+
+                <p
+                    id="productResultsSubtitle"
+                    class="text-muted mb-0"
+                >
+                    Comparing products based on your requirements.
+                </p>
+            </div>
+
+            <div class="col-md-4 text-md-end mt-3 mt-md-0">
+                <a
+                    href="{{ url_for('product.product_page') }}"
+                    class="btn btn-outline-primary"
+                >
+                    New Search
+                </a>
+            </div>
+
+        </div>
+
+
+        <!-- Requirement Summary -->
+        <div
+            id="productRequirementSummary"
+            class="card border-0 shadow-sm mb-4"
+        >
+
+            <div class="card-body">
+
+                <div class="row">
+
+                    <div class="col-lg-8">
+                        <div class="small text-muted mb-1">
+                            Your requirement
+                        </div>
+
+                        <div
+                            id="productOriginalRequirement"
+                            class="fw-semibold"
+                        >
+                            —
+                        </div>
+                    </div>
+
+                    <div class="col-lg-4 mt-3 mt-lg-0">
+
+                        <div class="row text-center">
+
+                            <div class="col-4">
+                                <div class="small text-muted">
+                                    Category
+                                </div>
+
+                                <strong id="productCategory">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="small text-muted">
+                                    Budget
+                                </div>
+
+                                <strong id="productBudget">
+                                    —
+                                </strong>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="small text-muted">
+                                    Results
+                                </div>
+
+                                <strong id="productResultCount">
+                                    0
+                                </strong>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Loading -->
+        <div
+            id="productResultsLoading"
+            class="text-center py-5 d-none"
+        >
+            <div
+                class="spinner-border text-primary mb-3"
+                role="status"
+            ></div>
+
+            <div class="fw-semibold">
+                Finding your best products...
+            </div>
+
+            <div class="text-muted small">
+                Please wait.
+            </div>
+        </div>
+
+
+        <!-- Error -->
+        <div
+            id="productResultsError"
+            class="alert alert-danger d-none"
+            role="alert"
+        ></div>
+
+
+        <!-- No Results -->
+        <div
+            id="productNoResults"
+            class="card border-0 shadow-sm d-none"
+        >
+            <div class="card-body text-center py-5">
+
+                <div class="display-5 mb-3">
+                    🔍
+                </div>
+
+                <h4 class="fw-bold">
+                    No matching products found
+                </h4>
+
+                <p class="text-muted">
+                    Try increasing your budget or changing some
+                    requirements.
+                </p>
+
+                <a
+                    href="{{ url_for('product.product_page') }}"
+                    class="btn btn-primary"
+                >
+                    Try Another Search
+                </a>
+
+            </div>
+        </div>
+
+
+        <!-- Results -->
+        <div
+            id="productResultsList"
+            class="row g-4"
+        ></div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for('static', filename='js/product.js') }}"
+></script>
+
+{% endblock %} 

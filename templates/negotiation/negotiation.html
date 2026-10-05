@@ -1,0 +1,823 @@
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT | AI Negotiation
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-xl-10">
+
+                <!-- HEADER -->
+                <div class="text-center mb-5">
+
+                    <span class="badge text-bg-primary px-3 py-2 mb-3">
+                        AI NEGOTIATION ENGINE
+                    </span>
+
+                    <h1 class="display-5 fw-bold mb-3">
+                        Get a Better Deal
+                    </h1>
+
+                    <p class="lead text-muted mb-0">
+                        BESTORA FIT negotiates intelligently,
+                        evaluates seller responses and helps you
+                        decide when to accept, counter or walk away.
+                    </p>
+
+                </div>
+
+
+                <!-- SELECTED DEAL -->
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-start
+                                    gap-3
+                                    mb-4">
+
+                            <div>
+
+                                <div class="small text-muted mb-1">
+                                    Selected Provider
+                                </div>
+
+                                <h3
+                                    id="providerName"
+                                    class="fw-bold mb-1"
+                                >
+                                    Service Provider
+                                </h3>
+
+                                <div
+                                    id="offerTitle"
+                                    class="text-muted"
+                                >
+                                    Selected Service
+                                </div>
+
+                            </div>
+
+                            <span
+                                id="riskBadge"
+                                class="badge text-bg-success"
+                            >
+                                LOW RISK
+                            </span>
+
+                        </div>
+
+
+                        <div class="row g-4">
+
+                            <!-- Listed Price -->
+                            <div class="col-md-4">
+
+                                <div class="small text-muted mb-1">
+                                    Listed Price
+                                </div>
+
+                                <div
+                                    id="originalPrice"
+                                    class="fs-3 fw-bold"
+                                >
+                                    ₹0
+                                </div>
+
+                            </div>
+
+
+                            <!-- AI Offer -->
+                            <div class="col-md-4">
+
+                                <div class="small text-muted mb-1">
+                                    AI Recommended Offer
+                                </div>
+
+                                <div
+                                    id="proposedPrice"
+                                    class="fs-3 fw-bold text-primary"
+                                >
+                                    ₹0
+                                </div>
+
+                            </div>
+
+
+                            <!-- Saving -->
+                            <div class="col-md-4">
+
+                                <div class="small text-muted mb-1">
+                                    Potential Saving
+                                </div>
+
+                                <div
+                                    id="discount"
+                                    class="fs-3 fw-bold text-success"
+                                >
+                                    0%
+                                </div>
+
+                                <div
+                                    id="potentialSaving"
+                                    class="small text-success mt-1"
+                                >
+                                    ₹0
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- NEGOTIATION CONTROLS -->
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="mb-4">
+
+                            <h4 class="fw-bold mb-1">
+                                Negotiation Controls
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Your maximum budget is a walk-away
+                                limit, not a restriction on making offers.
+                            </p>
+
+                        </div>
+
+
+                        <div class="row g-4">
+
+                            <!-- Budget -->
+                            <div class="col-md-6">
+
+                                <label
+                                    for="budgetMax"
+                                    class="form-label fw-semibold"
+                                >
+                                    Maximum Budget
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="budgetMax"
+                                    class="form-control form-control-lg"
+                                    min="1"
+                                    step="1"
+                                    placeholder="Example: 650"
+                                >
+
+                                <div class="form-text">
+                                    You may negotiate above this amount,
+                                    but BESTORA FIT will warn you.
+                                </div>
+
+                            </div>
+
+
+                            <!-- Trust -->
+                            <div class="col-md-6">
+
+                                <label
+                                    for="trustScore"
+                                    class="form-label fw-semibold"
+                                >
+                                    Provider Trust Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="trustScore"
+                                    class="form-control form-control-lg"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    value="80"
+                                >
+
+                            </div>
+
+
+                            <!-- Match -->
+                            <div class="col-md-6">
+
+                                <label
+                                    for="matchScore"
+                                    class="form-label fw-semibold"
+                                >
+                                    Match Score
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="matchScore"
+                                    class="form-control form-control-lg"
+                                    min="0"
+                                    max="100"
+                                    step="1"
+                                    value="80"
+                                >
+
+                            </div>
+
+
+                            <!-- Locked Original Price -->
+                            <div class="col-md-6">
+
+                                <label
+                                    for="originalPriceInput"
+                                    class="form-label fw-semibold"
+                                >
+                                    Original Price
+
+                                    <span class="badge text-bg-secondary">
+                                        LOCKED
+                                    </span>
+                                </label>
+
+                                <input
+                                    type="number"
+                                    id="originalPriceInput"
+                                    class="form-control form-control-lg"
+                                    min="1"
+                                    step="1"
+                                    readonly
+                                >
+
+                                <div class="form-text">
+                                    Exact price from the selected offer.
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <button
+                            id="strategyButton"
+                            type="button"
+                            class="btn btn-primary btn-lg w-100 mt-4"
+                        >
+                            Calculate Best Offer
+                        </button>
+
+
+                        <div
+                            id="strategyStatus"
+                            class="mt-3"
+                            hidden
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI INTELLIGENCE -->
+                <div
+                    id="strategyIntelligenceCard"
+                    class="card border-0 shadow-sm rounded-4 mb-4"
+                >
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="mb-4">
+
+                            <span class="badge text-bg-primary mb-2">
+                                AI INTELLIGENCE
+                            </span>
+
+                            <h4 class="fw-bold mb-1">
+                                Negotiation Analysis
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                BESTORA FIT explains why this offer
+                                is recommended.
+                            </p>
+
+                        </div>
+
+
+                        <div class="row g-4">
+
+                            <!-- Confidence -->
+                            <div class="col-md-4">
+
+                                <div class="border rounded-4 p-3 h-100">
+
+                                    <div class="small text-muted">
+                                        Confidence
+                                    </div>
+
+                                    <div
+                                        id="intelligenceConfidence"
+                                        class="fs-4 fw-bold mt-1"
+                                    >
+                                        0%
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Level -->
+                            <div class="col-md-4">
+
+                                <div class="border rounded-4 p-3 h-100">
+
+                                    <div class="small text-muted">
+                                        Negotiation Level
+                                    </div>
+
+                                    <div
+                                        id="intelligenceLevel"
+                                        class="fs-4 fw-bold mt-1"
+                                    >
+                                        —
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <!-- Maximum Saving -->
+                            <div class="col-md-4">
+
+                                <div class="border rounded-4 p-3 h-100">
+
+                                    <div class="small text-muted">
+                                        Maximum Potential Saving
+                                    </div>
+
+                                    <div
+                                        id="maximumSaving"
+                                        class="fs-4 fw-bold text-success mt-1"
+                                    >
+                                        ₹0
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            class="alert alert-light border rounded-4 mt-4 mb-0"
+                        >
+
+                            <div class="fw-semibold mb-1">
+                                Why BESTORA recommends this
+                            </div>
+
+                            <div
+                                id="strategyReason"
+                                class="text-muted"
+                            >
+                                Calculate your negotiation strategy
+                                to see the AI explanation.
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- LIVE NEGOTIATION -->
+                <div
+                    id="liveNegotiationPanel"
+                    class="card border-0 shadow-sm rounded-4 mb-4"
+                    hidden
+                >
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-start
+                                    mb-4">
+
+                            <div>
+
+                                <span class="badge text-bg-dark mb-2">
+                                    LIVE NEGOTIATION
+                                </span>
+
+                                <h4 class="fw-bold mb-1">
+                                    Buyer ↔ AI Seller
+                                </h4>
+
+                                <p class="text-muted mb-0">
+                                    You negotiate as the buyer.
+                                    BESTORA FIT simulates the provider.
+                                </p>
+
+                            </div>
+
+                            <span
+                                id="negotiationRoundBadge"
+                                class="badge text-bg-secondary"
+                            >
+                                ROUND 1
+                            </span>
+
+                        </div>
+
+
+                        <!-- CHAT -->
+                        <div
+                            id="negotiationConversation"
+                            class="border rounded-4 p-3 mb-4"
+                            style="
+                                max-height: 420px;
+                                overflow-y: auto;
+                            "
+                        ></div>
+
+
+                        <!-- CURRENT SELLER PRICE -->
+                        <div
+                            id="currentSellerPriceCard"
+                            class="alert alert-primary rounded-4"
+                            hidden
+                        >
+
+                            <div class="small text-muted">
+                                CURRENT SELLER PRICE
+                            </div>
+
+                            <div
+                                id="currentSellerPrice"
+                                class="fs-2 fw-bold"
+                            >
+                                ₹0
+                            </div>
+
+                        </div>
+
+
+                        <!-- BUYER OFFER -->
+                        <div class="mb-3">
+
+                            <label
+                                for="buyerOfferInput"
+                                class="form-label fw-semibold"
+                            >
+                                Your Offer
+                            </label>
+
+                            <div class="input-group input-group-lg">
+
+                                <span class="input-group-text">
+                                    ₹
+                                </span>
+
+                                <input
+                                    type="number"
+                                    id="buyerOfferInput"
+                                    class="form-control"
+                                    min="1"
+                                    step="1"
+                                    placeholder="Enter your offer"
+                                >
+
+                                <button
+                                    id="sendBuyerOfferButton"
+                                    type="button"
+                                    class="btn btn-primary"
+                                >
+                                    Send Offer
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="sellerResponseStatus"
+                            class="mt-3"
+                            hidden
+                        ></div>
+
+
+                        <!-- DEAL ACTIONS -->
+                        <div
+                            id="negotiationActionPanel"
+                            class="mt-4"
+                            hidden
+                        >
+
+                            <div class="d-flex
+                                        flex-wrap
+                                        gap-2">
+
+                                <button
+                                    id="acceptDealButton"
+                                    type="button"
+                                    class="btn btn-success btn-lg"
+                                >
+                                    ✓ Accept Deal
+                                </button>
+
+                                <button
+                                    id="counterAgainButton"
+                                    type="button"
+                                    class="btn btn-primary btn-lg"
+                                >
+                                    ↻ Counter Again
+                                </button>
+
+                                <button
+                                    id="walkAwayButton"
+                                    type="button"
+                                    class="btn btn-outline-danger btn-lg"
+                                >
+                                    ✕ Walk Away
+                                </button>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AI DEAL ANALYSIS -->
+                        <div
+                            id="aiDealAnalysis"
+                            class="alert alert-light border rounded-4 mt-4"
+                            hidden
+                        >
+
+                            <div class="fw-bold mb-2">
+                                AI DEAL ANALYSIS
+                            </div>
+
+                            <div
+                                id="aiDealAnalysisTitle"
+                                class="fw-semibold mb-1"
+                            >
+                                —
+                            </div>
+
+                            <div
+                                id="aiDealAnalysisText"
+                                class="text-muted"
+                            >
+                                —
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DEAL CONFIRMATION -->
+                <div
+                    id="dealConfirmationCard"
+                    class="card border-0 shadow-sm rounded-4 mb-4"
+                    hidden
+                >
+
+                    <div class="card-body p-4 p-md-5 text-center">
+
+                        <div class="mb-3">
+
+                            <span
+                                class="badge text-bg-success px-3 py-2"
+                            >
+                                DEAL CONFIRMED
+                            </span>
+
+                        </div>
+
+
+                        <h2 class="fw-bold mb-2">
+                            🎉 Deal Ready
+                        </h2>
+
+                        <p class="text-muted mb-4">
+                            The negotiated price has been accepted.
+                        </p>
+
+
+                        <div
+                            class="row g-3 justify-content-center mb-4"
+                        >
+
+                            <div class="col-md-4">
+
+                                <div class="border rounded-4 p-3">
+
+                                    <div class="small text-muted">
+                                        Final Price
+                                    </div>
+
+                                    <div
+                                        id="finalDealPrice"
+                                        class="fs-3 fw-bold text-success"
+                                    >
+                                        ₹0
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4">
+
+                                <div class="border rounded-4 p-3">
+
+                                    <div class="small text-muted">
+                                        You Saved
+                                    </div>
+
+                                    <div
+                                        id="finalDealSavings"
+                                        class="fs-3 fw-bold text-primary"
+                                    >
+                                        ₹0
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- Budget Warning -->
+                        <div
+                            id="finalDealBudgetWarning"
+                            class="alert alert-warning rounded-4 text-start"
+                            hidden
+                        >
+
+                            <strong>
+                                ⚠️ Budget Warning
+                            </strong>
+
+                            <div
+                                id="finalDealBudgetWarningText"
+                                class="mt-1"
+                            >
+                                The final price is above your
+                                maximum budget.
+                            </div>
+
+                        </div>
+
+
+                        <div
+                            id="dealConfirmationStatus"
+                            class="mb-3"
+                            hidden
+                        ></div>
+
+
+                        <button
+                            id="proceedBillingButton"
+                            type="button"
+                            class="btn btn-success btn-lg px-5"
+                        >
+                            Proceed to Billing →
+                        </button>
+
+
+                        <div class="small text-muted mt-3">
+                            Billing is the next step after accepting
+                            the negotiated deal.
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- AI NEGOTIATION MESSAGE -->
+                <div
+                    id="messageCard"
+                    class="card border-0 shadow-sm rounded-4 mb-4"
+                >
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="mb-4">
+
+                            <span class="badge text-bg-dark mb-2">
+                                AI MESSAGE
+                            </span>
+
+                            <h4 class="fw-bold mb-1">
+                                AI Negotiation Message
+                            </h4>
+
+                            <p class="text-muted mb-0">
+                                Generate a polite and persuasive
+                                message for the provider.
+                            </p>
+
+                        </div>
+
+
+                        <textarea
+                            id="negotiationMessage"
+                            class="form-control"
+                            rows="7"
+                            placeholder="Your negotiation message will appear here..."
+                        ></textarea>
+
+
+                        <div
+                            class="d-flex
+                                   flex-wrap
+                                   gap-2
+                                   mt-3"
+                        >
+
+                            <button
+                                id="generateMessageButton"
+                                type="button"
+                                class="btn btn-dark"
+                            >
+                                Generate Message
+                            </button>
+
+                            <button
+                                id="copyMessageButton"
+                                type="button"
+                                class="btn btn-outline-secondary"
+                            >
+                                Copy Message
+                            </button>
+
+                        </div>
+
+
+                        <div
+                            id="messageStatus"
+                            class="mt-3"
+                            hidden
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- DISCLAIMER -->
+                <div class="text-center mt-4 mb-5">
+
+                    <p class="small text-muted mb-0">
+                        BESTORA FIT provides AI-assisted negotiation
+                        recommendations. Final pricing and acceptance
+                        depend on the actual provider or seller.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+
+{% block scripts %}
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/negotiation.js'
+    ) }}"
+></script>
+
+{% endblock %} 

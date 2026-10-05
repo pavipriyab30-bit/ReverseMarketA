@@ -1,0 +1,159 @@
+
+{% extends "base.html" %}
+
+{% block title %}Product Mode | BESTORA FIT{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+
+            <!-- Header -->
+            <div class="text-center mb-4">
+                <span class="badge bg-primary mb-3">PRODUCT MODE</span>
+
+                <h1 class="display-5 fw-bold">
+                    Find the right product for you
+                </h1>
+
+                <p class="lead text-muted">
+                    Tell BESTORA FIT what you need. We'll understand your
+                    requirements, compare products, and recommend the best fit.
+                </p>
+            </div>
+
+            <!-- Requirement Card -->
+            <div class="card shadow-sm border-0">
+                <div class="card-body p-4 p-md-5">
+
+                    <form id="productRequirementForm">
+
+                        <label for="productRequirement" class="form-label fw-semibold">
+                            What product are you looking for?
+                        </label>
+
+                        <textarea
+                            id="productRequirement"
+                            name="requirement"
+                            class="form-control form-control-lg"
+                            rows="5"
+                            placeholder="Example: I need a laptop under ₹50,000 for coding with good battery life."
+                            required
+                        ></textarea>
+
+                        <div class="form-text mb-3">
+                            Describe your budget, features, brand preferences,
+                            or anything important to you.
+                        </div>
+
+                        <!-- Example -->
+                        <div class="bg-light rounded p-3 mb-4">
+                            <div class="fw-semibold mb-2">
+                                Example requirement
+                            </div>
+
+                            <button
+                                type="button"
+                                class="btn btn-link text-start text-decoration-none p-0 product-example"
+                                data-requirement="I need a laptop under ₹60,000 for coding with good battery life."
+                            >
+                                "I need a laptop under ₹60,000 for coding with good battery life."
+                            </button>
+
+                            <div class="mt-3 small text-muted">
+                                <span class="me-3">
+                                    <strong>Budget fit</strong> ✓
+                                </span>
+
+                                <span class="me-3">
+                                    <strong>Feature fit</strong> ✓
+                                </span>
+
+                                <span>
+                                    <strong>Value</strong> ✓
+                                </span>
+                            </div>
+                        </div>
+
+                        <!-- Error -->
+                        <div
+                            id="productRequirementError"
+                            class="alert alert-danger d-none"
+                            role="alert"
+                        ></div>
+
+                        <!-- Processing -->
+                        <div
+                            id="productProcessing"
+                            class="alert alert-info d-none"
+                            role="status"
+                        >
+                            Understanding your requirement and finding the
+                            best products...
+                        </div>
+
+                        <!-- Submit -->
+                        <button
+                            type="submit"
+                            id="findProductButton"
+                            class="btn btn-primary btn-lg w-100"
+                        >
+                            Find Best Products
+                        </button>
+
+                    </form>
+
+                </div>
+            </div>
+
+            <!-- Examples -->
+            <div class="text-center mt-4">
+                <p class="text-muted mb-2">
+                    You can ask for things like:
+                </p>
+
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm product-example"
+                        data-requirement="I need a smartphone under ₹30,000 with a good camera and 5G."
+                    >
+                        Smartphone
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm product-example"
+                        data-requirement="I need headphones under ₹15,000 with good battery life and noise cancellation."
+                    >
+                        Headphones
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm product-example"
+                        data-requirement="I need a 43 inch 4K smart TV under ₹40,000."
+                    >
+                        Television
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn btn-outline-secondary btn-sm product-example"
+                        data-requirement="I need a laptop under ₹50,000 for coding with good battery life."
+                    >
+                        Laptop
+                    </button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/product.js') }}"></script>
+{% endblock %} 

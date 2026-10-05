@@ -1,0 +1,249 @@
+{% extends "base.html" %}
+
+{% block title %}BESTORA FIT | Billing{% endblock %}
+
+{% block content %}
+
+<div class="page-shell">
+
+    <!-- HEADER -->
+    <section class="hero-section">
+        <div class="hero-badge">💳 SECURE CHECKOUT</div>
+
+        <h1>
+            Deal <span>Confirmed</span>
+        </h1>
+
+        <p>
+            Your negotiated deal is ready for checkout.
+        </p>
+    </section>
+
+
+    <!-- BILLING CARD -->
+    <section class="result-card billing-card">
+
+        <div class="result-card-header">
+            <div>
+                <span class="section-kicker">PAYMENT SUMMARY</span>
+                <h2 id="billingOfferTitle">Negotiated Service</h2>
+                <p id="billingProviderName">
+                    Selected provider
+                </p>
+            </div>
+
+            <div class="success-badge">
+                ✓ DEAL ACCEPTED
+            </div>
+        </div>
+
+
+        <!-- PRICE SUMMARY -->
+        <div class="billing-summary-grid">
+
+            <div class="billing-item">
+                <span>Original Price</span>
+                <strong id="billingOriginalPrice">₹0</strong>
+            </div>
+
+            <div class="billing-item">
+                <span>Negotiated Price</span>
+                <strong id="billingFinalPrice">₹0</strong>
+            </div>
+
+            <div class="billing-item">
+                <span>You Save</span>
+                <strong id="billingSavings">₹0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- BUDGET WARNING -->
+        <div
+            id="billingBudgetWarning"
+            class="risk-alert"
+            style="display: none;"
+        >
+            <strong>⚠️ Budget Warning</strong>
+            <p id="billingBudgetWarningText">
+                The negotiated price is above your maximum budget.
+            </p>
+        </div>
+
+
+        <!-- DEAL DETAILS -->
+        <div class="billing-details">
+
+            <h3>Deal Details</h3>
+
+            <div class="detail-row">
+                <span>Service Provider</span>
+                <strong id="billingProviderDetail">—</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>Service</span>
+                <strong id="billingServiceDetail">—</strong>
+            </div>
+
+            <div class="detail-row">
+                <span>Original Price</span>
+                <strong id="billingOriginalDetail">₹0</strong>
+            </div>
+
+            <div class="detail-row final-price-row">
+                <span>Final Negotiated Price</span>
+                <strong id="billingFinalDetail">₹0</strong>
+            </div>
+
+        </div>
+
+
+        <!-- PAYMENT NOTICE -->
+        <div class="billing-payment-notice">
+
+            <div class="notice-icon">🔒</div>
+
+            <div>
+                <strong>Secure Payment</strong>
+                <p>
+                    This hackathon demo records the accepted deal.
+                    No real payment will be processed.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- ACTIONS -->
+        <div class="billing-actions">
+
+            <button
+                type="button"
+                class="secondary-button"
+                onclick="window.location.href='/negotiation/'"
+            >
+                ← Back to Negotiation
+            </button>
+
+            <button
+                type="button"
+                class="primary-button"
+                id="confirmPaymentButton"
+            >
+                Confirm & Pay ₹<span id="paymentAmount">0</span>
+            </button>
+
+        </div>
+
+        <p
+            id="paymentStatus"
+            class="status-message"
+            style="display: none;"
+        ></p>
+
+    </section>
+
+</div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const params = new URLSearchParams(window.location.search);
+
+    const providerName =
+        params.get("provider_name") || "Selected Provider";
+
+    const offerTitle =
+        params.get("offer_title") || "Negotiated Service";
+
+    const originalPrice =
+        Number(params.get("original_price") || 0);
+
+    const finalPrice =
+        Number(params.get("final_price") || 0);
+
+    const savings =
+        Number(
+            params.get("savings") ||
+            Math.max(originalPrice - finalPrice, 0)
+        );
+
+    const budgetWarning =
+        params.get("budget_warning") === "true";
+
+
+    function formatCurrency(value) {
+        return "₹" + Number(value || 0).toLocaleString("en-IN");
+    }
+
+
+    document.getElementById("billingOfferTitle").textContent =
+        offerTitle;
+
+    document.getElementById("billingProviderName").textContent =
+        providerName;
+
+    document.getElementById("billingProviderDetail").textContent =
+        providerName;
+
+    document.getElementById("billingServiceDetail").textContent =
+        offerTitle;
+
+    document.getElementById("billingOriginalPrice").textContent =
+        formatCurrency(originalPrice);
+
+    document.getElementById("billingFinalPrice").textContent =
+        formatCurrency(finalPrice);
+
+    document.getElementById("billingSavings").textContent =
+        formatCurrency(savings);
+
+    document.getElementById("billingOriginalDetail").textContent =
+        formatCurrency(originalPrice);
+
+    document.getElementById("billingFinalDetail").textContent =
+        formatCurrency(finalPrice);
+
+    document.getElementById("paymentAmount").textContent =
+        Number(finalPrice || 0).toLocaleString("en-IN");
+
+
+    if (budgetWarning) {
+
+        const warning =
+            document.getElementById("billingBudgetWarning");
+
+        warning.style.display = "block";
+
+        document.getElementById(
+            "billingBudgetWarningText"
+        ).textContent =
+            "The final negotiated price is above your maximum budget.";
+
+    }
+
+
+    document
+        .getElementById("confirmPaymentButton")
+        .addEventListener("click", function () {
+
+            const status =
+                document.getElementById("paymentStatus");
+
+            status.style.display = "block";
+
+            status.textContent =
+                "✓ Demo payment confirmed. Your negotiated deal is successfully recorded.";
+
+            this.textContent = "✓ PAYMENT CONFIRMED";
+            this.disabled = true;
+
+        });
+
+});
+</script>
+
+{% endblock %}    

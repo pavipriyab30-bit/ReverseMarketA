@@ -1,0 +1,487 @@
+{% extends "base.html" %}
+
+{% block title %}
+BESTORA FIT — Provider Details
+{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+
+    <div class="container py-4">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-10">
+
+                <!-- =================================================
+                     BACK NAVIGATION
+                     ================================================= -->
+
+                <div class="mb-4">
+
+                    <a
+                        href="{{ url_for('service.service_page') }}"
+                        class="text-decoration-none"
+                    >
+                        ← Back to Service Search
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     PROVIDER HEADER
+                     ================================================= -->
+
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="row align-items-center g-4">
+
+                            <div class="col-md-8">
+
+                                <div class="d-flex
+                                            align-items-center
+                                            flex-wrap
+                                            gap-2
+                                            mb-2">
+
+                                    <span
+                                        id="providerVerified"
+                                        class="badge text-bg-success"
+                                    >
+                                        ✓ Verified
+                                    </span>
+
+                                    <span
+                                        id="providerRisk"
+                                        class="badge text-bg-success"
+                                    >
+                                        LOW RISK
+                                    </span>
+
+                                </div>
+
+
+                                <h1
+                                    id="providerName"
+                                    class="fw-bold mb-2"
+                                >
+                                    Provider Name
+                                </h1>
+
+
+                                <p
+                                    id="providerCategory"
+                                    class="text-muted lead mb-2"
+                                >
+                                    Service Category
+                                </p>
+
+
+                                <div
+                                    id="providerLocation"
+                                    class="text-muted"
+                                >
+                                    📍 Location
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-4 text-md-end">
+
+                                <div
+                                    id="providerMatchScore"
+                                    class="display-4 fw-bold text-primary"
+                                >
+                                    0
+                                </div>
+
+                                <div class="text-muted">
+                                    Match Score
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     TRUST PROFILE
+                     ================================================= -->
+
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <h4 class="fw-bold mb-4">
+                            Trust Profile
+                        </h4>
+
+
+                        <div class="row g-4">
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Rating
+                                </div>
+
+                                <div
+                                    id="providerRating"
+                                    class="fs-4 fw-bold"
+                                >
+                                    ★ 0.0
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Reviews
+                                </div>
+
+                                <div
+                                    id="providerReviews"
+                                    class="fs-4 fw-bold"
+                                >
+                                    0
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Completed Jobs
+                                </div>
+
+                                <div
+                                    id="providerJobs"
+                                    class="fs-4 fw-bold"
+                                >
+                                    0
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-6 col-md-3">
+
+                                <div class="small text-muted">
+                                    Experience
+                                </div>
+
+                                <div
+                                    id="providerExperience"
+                                    class="fs-4 fw-bold"
+                                >
+                                    0 years
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <hr class="my-4">
+
+
+                        <div class="row g-4">
+
+                            <div class="col-md-6">
+
+                                <div class="d-flex
+                                            justify-content-between
+                                            mb-2">
+
+                                    <span class="text-muted">
+                                        Trust Score
+                                    </span>
+
+                                    <strong
+                                        id="providerTrustScore"
+                                    >
+                                        0/100
+                                    </strong>
+
+                                </div>
+
+
+                                <div
+                                    class="progress"
+                                    style="height: 8px;"
+                                >
+
+                                    <div
+                                        id="providerTrustProgress"
+                                        class="progress-bar"
+                                        style="width: 0%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="d-flex
+                                            justify-content-between
+                                            mb-2">
+
+                                    <span class="text-muted">
+                                        Response Rate
+                                    </span>
+
+                                    <strong
+                                        id="providerResponseRate"
+                                    >
+                                        0%
+                                    </strong>
+
+                                </div>
+
+
+                                <div
+                                    class="progress"
+                                    style="height: 8px;"
+                                >
+
+                                    <div
+                                        id="providerResponseProgress"
+                                        class="progress-bar"
+                                        style="width: 0%;"
+                                    ></div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     OFFER
+                     ================================================= -->
+
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="d-flex
+                                    justify-content-between
+                                    align-items-start
+                                    gap-3
+                                    mb-4">
+
+                            <div>
+
+                                <div class="small text-muted">
+                                    SERVICE OFFER
+                                </div>
+
+                                <h3
+                                    id="offerTitle"
+                                    class="fw-bold mb-1"
+                                >
+                                    Service Offer
+                                </h3>
+
+                                <p
+                                    id="offerDescription"
+                                    class="text-muted mb-0"
+                                >
+                                    Service description
+                                </p>
+
+                            </div>
+
+
+                            <div class="text-end">
+
+                                <div
+                                    id="offerPrice"
+                                    class="fs-3 fw-bold text-primary"
+                                >
+                                    ₹0
+                                </div>
+
+                                <div
+                                    id="offerCurrency"
+                                    class="small text-muted"
+                                >
+                                    INR
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="row g-3">
+
+                            <div class="col-md-6">
+
+                                <div class="border rounded-3 p-3">
+
+                                    <div class="small text-muted">
+                                        Availability
+                                    </div>
+
+                                    <div
+                                        id="offerAvailability"
+                                        class="fw-semibold"
+                                    >
+                                        Available
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+
+                            <div class="col-md-6">
+
+                                <div class="border rounded-3 p-3">
+
+                                    <div class="small text-muted">
+                                        Delivery Time
+                                    </div>
+
+                                    <div
+                                        id="offerDelivery"
+                                        class="fw-semibold"
+                                    >
+                                        —
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RECOMMENDATION
+                     ================================================= -->
+
+                <div class="card border-0 bg-light rounded-4 mb-4">
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold mb-2">
+                            Why BESTORA FIT recommends this provider
+                        </h5>
+
+                        <p
+                            id="recommendationReason"
+                            class="text-muted mb-0"
+                        >
+                            This provider was selected based on
+                            your requirement.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     RISK ALERTS
+                     ================================================= -->
+
+                <div
+                    id="riskAlertsCard"
+                    class="card border-0 shadow-sm rounded-4 mb-4"
+                    hidden
+                >
+
+                    <div class="card-body p-4">
+
+                        <h5 class="fw-bold mb-3">
+                            Risk Alerts
+                        </h5>
+
+                        <div id="riskAlertsList"></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     ACTIONS
+                     ================================================= -->
+
+                <div class="d-flex
+                            flex-column
+                            flex-md-row
+                            gap-3">
+
+                    <button
+                        id="providerNegotiateButton"
+                        type="button"
+                        class="btn btn-primary btn-lg flex-grow-1"
+                    >
+                        Negotiate Better Price
+                    </button>
+
+
+                    <a
+                        href="{{ url_for('service.service_page') }}"
+                        class="btn btn-outline-dark btn-lg"
+                    >
+                        Find Another Provider
+                    </a>
+
+                </div>
+
+
+                <!-- Error -->
+
+                <div
+                    id="providerError"
+                    class="alert alert-danger mt-4 rounded-4"
+                    hidden
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+
+<script
+    src="{{ url_for(
+        'static',
+        filename='js/service.js'
+    ) }}"
+></script>
+
+{% endblock %} 

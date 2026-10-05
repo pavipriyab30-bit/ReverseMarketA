@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+
+{% block title %}Analyzing Products — BESTORA FIT{% endblock %}
+
+{% block content %}
+
+<section class="py-5">
+    <div class="container">
+
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+
+                <div class="text-center mb-5">
+
+                    <span class="badge bg-primary mb-3">
+                        BESTORA AI
+                    </span>
+
+                    <h1 class="display-5 fw-bold">
+                        Finding your best fit...
+                    </h1>
+
+                    <p class="lead text-muted">
+                        BESTORA FIT is understanding your needs and
+                        comparing products for you.
+                    </p>
+
+                </div>
+
+                <div class="card shadow-sm border-0">
+                    <div class="card-body p-4 p-md-5">
+
+                        <div class="mb-4">
+                            <div class="d-flex justify-content-between mb-2">
+                                <span class="fw-semibold">
+                                    AI Analysis
+                                </span>
+
+                                <span
+                                    id="productAnalysisPercent"
+                                    class="text-muted"
+                                >
+                                    0%
+                                </span>
+                            </div>
+
+                            <div class="progress" style="height: 10px;">
+                                <div
+                                    id="productAnalysisProgressBar"
+                                    class="progress-bar"
+                                    role="progressbar"
+                                    style="width: 0%;"
+                                    aria-valuenow="0"
+                                    aria-valuemin="0"
+                                    aria-valuemax="100"
+                                ></div>
+                            </div>
+                        </div>
+
+                        <div class="list-group list-group-flush">
+
+                            <div
+                                id="productAnalysisStep1"
+                                class="list-group-item px-0 py-3"
+                            >
+                                <div class="d-flex align-items-center">
+
+                                    <span
+                                        class="badge rounded-pill bg-secondary me-3"
+                                    >
+                                        1
+                                    </span>
+
+                                    <div>
+                                        <strong>
+                                            Understanding your requirement
+                                        </strong>
+
+                                        <div class="small text-muted">
+                                            Identifying budget, category and preferences.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div
+                                id="productAnalysisStep2"
+                                class="list-group-item px-0 py-3"
+                            >
+                                <div class="d-flex align-items-center">
+
+                                    <span
+                                        class="badge rounded-pill bg-secondary me-3"
+                                    >
+                                        2
+                                    </span>
+
+                                    <div>
+                                        <strong>
+                                            Comparing products
+                                        </strong>
+
+                                        <div class="small text-muted">
+                                            Checking products against your needs.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div
+                                id="productAnalysisStep3"
+                                class="list-group-item px-0 py-3"
+                            >
+                                <div class="d-flex align-items-center">
+
+                                    <span
+                                        class="badge rounded-pill bg-secondary me-3"
+                                    >
+                                        3
+                                    </span>
+
+                                    <div>
+                                        <strong>
+                                            Evaluating value
+                                        </strong>
+
+                                        <div class="small text-muted">
+                                            Comparing quality, price and deal value.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <div
+                                id="productAnalysisStep4"
+                                class="list-group-item px-0 py-3"
+                            >
+                                <div class="d-flex align-items-center">
+
+                                    <span
+                                        class="badge rounded-pill bg-secondary me-3"
+                                    >
+                                        4
+                                    </span>
+
+                                    <div>
+                                        <strong>
+                                            Preparing recommendations
+                                        </strong>
+
+                                        <div class="small text-muted">
+                                            Ranking the best-fit products for you.
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="mt-4 p-3 bg-light rounded">
+                            <div class="small text-muted mb-1">
+                                Your requirement
+                            </div>
+
+                            <div
+                                id="productAnalyzingRequirement"
+                                class="fw-semibold"
+                            >
+                                Analyzing...
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
+
+{% block scripts %}
+<script
+    src="{{ url_for('static', filename='js/product.js') }}"
+></script>
+{% endblock %} 
